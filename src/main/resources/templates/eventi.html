@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Eventi Disponibili</title>
+  </head>
+  <body>
+    <h1>Eventi Disponibili</h1>
+
+    <table border="1">
+      <thead>
+        <tr>
+          <th>Titolo</th>
+          <th>Descrizione</th>
+          <th>Data</th>
+          <th>Prezzo</th>
+          <th>Azione</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr th:each="evento : ${eventi}">
+          <td th:text="${evento.titolo}"></td>
+          <td th:text="${evento.descrizione}"></td>
+          <td th:text="${evento.data}"></td>
+          <td th:text="${evento.prezzo} + ' €'"></td>
+          <td>
+            <a th:href="@{'/prenotazioni/nuova/' + ${evento.id}}">Prenota</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <a th:href="@{/prenotazioni/dashboard}" class="btn"
+      >Torna alla Dashboard</a
+    >
+  </body>
+</html>

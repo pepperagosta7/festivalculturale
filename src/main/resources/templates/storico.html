@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Storico Prenotazioni</title>
+  </head>
+  <body>
+    <h1>Storico Prenotazioni</h1>
+
+    <table border="1">
+      <thead>
+        <tr>
+          <th>Evento</th>
+          <th>Data</th>
+          <th>Biglietti</th>
+          <th>Azione</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr th:each="prenotazione : ${prenotazioni}">
+          <td th:text="${prenotazione.evento.titolo}"></td>
+          <td th:text="${prenotazione.dataPrenotazione}"></td>
+          <td th:text="${prenotazione.numeroBiglietti}"></td>
+          <td>
+            <form
+              th:action="@{'/prenotazioni/' + ${prenotazione.id}}"
+              method="post"
+            >
+              <input type="hidden" name="_method" value="delete" />
+              <button type="submit">Cancella</button>
+            </form>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <a th:href="@{/prenotazioni/dashboard}" class="btn"
+      >Torna alla Dashboard</a
+    >
+  </body>
+</html>

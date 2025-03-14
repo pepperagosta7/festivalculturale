@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+   
+  </head>
+  <body>
+    <div class="container">
+      <h1>Dashboard Admin</h1>
+
+      <a th:href="@{/admin/gestione-eventi}" class="btn">Gestione Eventi</a>
+
+      <a th:href="@{/admin/gestione-prenotazioni}" class="btn"
+        >Gestione Prenotazioni</a
+      >
+
+      <a th:href="@{/admin/eventi/nuovo}" class="btn">Crea Nuovo Evento</a>
+      
+      <form th:action="@{/auth/logout}" method="post">
+        <button type="submit" class="btn logout-btn">Logout</button>
+      </form>
+    </div>
+  </body>
+</html>

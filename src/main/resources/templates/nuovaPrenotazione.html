@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Effettua Prenotazione</title>
+  </head>
+  <body>
+    <h1>Effettua una Nuova Prenotazione</h1>
+
+    <form th:action="@{'/prenotazioni/' + ${eventoId}}" method="post">
+      <label for="numeroBiglietti">Numero di Biglietti:</label>
+      <input
+        type="number"
+        id="numeroBiglietti"
+        name="numeroBiglietti"
+        min="1"
+        required
+      />
+      <button type="submit">Prenota</button>
+    </form>
+    
+    <a th:href="@{/prenotazioni/storico}">Torna alla home</a>
+  </body>
+</html>
